@@ -27,9 +27,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Align top and bottom */
     align-items: center;
-    padding: 10px;
+    padding: 20px 10px;
     box-sizing: border-box;
     opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -40,52 +40,6 @@
   .active {
     opacity: 1;
     z-index: 1;
-  }
-
-  /* Calendar styles */
-  .calendar {
-    width: 300px;
-    background-color: #fff0f5;
-    border: 2px solid #ff69b4;
-    border-radius: 12px;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-
-  .calendar .month {
-    font-size: 18px;
-    color: #ff69b4;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-
-  .calendar .days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-  }
-
-  .calendar .day-name, .calendar .day {
-    text-align: center;
-    padding: 5px;
-    font-size: 14px;
-    border-radius: 6px;
-  }
-
-  .calendar .day-name {
-    font-weight: bold;
-    color: #ff69b4;
-  }
-
-  .calendar .day:hover {
-    background-color: #ff85c1;
-    cursor: pointer;
-  }
-
-  .calendar .day.highlight {
-    background-color: #ff69b4;
-    color: #fff;
-    font-weight: bold;
   }
 
   h1 {
@@ -105,6 +59,7 @@
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
+    margin-bottom: 20px;
   }
 
   button:hover {
@@ -116,7 +71,22 @@
     max-width: 80%;
     height: auto;
     border-radius: 10px;
+  }
+
+  /* Special style for image at the bottom of the first page */
+  .bottom-image {
+    width: 40%;
+    max-width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    animation: float 3s ease-in-out infinite;
     margin-bottom: 20px;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
   }
 
   .sections {
@@ -178,8 +148,9 @@
     .section {
       width: 90%;
     }
-    .calendar {
-      width: 90%;
+    .bottom-image {
+      width: 60%;
+      max-width: 150px;
     }
   }
 </style>
@@ -188,60 +159,11 @@
 
 <!-- First Page -->
 <div id="firstPage" class="page active">
-  <div class="calendar">
-    <div class="month">September 2006</div>
-    <div class="days">
-      <div class="day-name">Sun</div>
-      <div class="day-name">Mon</div>
-      <div class="day-name">Tue</div>
-      <div class="day-name">Wed</div>
-      <div class="day-name">Thu</div>
-      <div class="day-name">Fri</div>
-      <div class="day-name">Sat</div>
-
-      <div class="day"></div>
-      <div class="day"></div>
-      <div class="day"></div>
-      <div class="day"></div>
-      <div class="day">1</div>
-      <div class="day">2</div>
-      <div class="day">3</div>
-
-      <div class="day">4</div>
-      <div class="day">5</div>
-      <div class="day">6</div>
-      <div class="day">7</div>
-      <div class="day">8</div>
-      <div class="day">9</div>
-      <div class="day">10</div>
-
-      <div class="day">11</div>
-      <div class="day">12</div>
-      <div class="day">13</div>
-      <div class="day">14</div>
-      <div class="day">15</div>
-      <div class="day highlight">16</div>
-      <div class="day">17</div>
-
-      <div class="day">18</div>
-      <div class="day">19</div>
-      <div class="day">20</div>
-      <div class="day">21</div>
-      <div class="day">22</div>
-      <div class="day">23</div>
-      <div class="day">24</div>
-
-      <div class="day">25</div>
-      <div class="day">26</div>
-      <div class="day">27</div>
-      <div class="day">28</div>
-      <div class="day">29</div>
-      <div class="day">30</div>
-      <div class="day"></div>
-    </div>
+  <div style="text-align: center; margin-top: 20px;">
+    <h1>Happy Birthday Twinkle 🎉</h1>
+    <button onclick="showPage(2)">Click Here</button>
   </div>
-  <h1>Happy Birthday Twinkle 🎉</h1>
-  <button onclick="showPage(2)">Click Here</button>
+  <img src="pic/pic.5.jpg" alt="first page image" class="bottom-image">
 </div>
 
 <!-- Second Page -->
